@@ -68,7 +68,7 @@ struct ContentView: View {
         var words = viewModel.words
 
         if !searchText.isEmpty {
-            words = words.filter { $0.tr.contains(searchText) || $0.eng.contains(searchText) }
+            words = words.filter { $0.tr.localizedCaseInsensitiveContains(searchText) || $0.eng.localizedCaseInsensitiveContains(searchText) }
         }
 
         switch filterOption {
@@ -79,7 +79,7 @@ struct ContentView: View {
         }
     }
     
-    private var addButton : some View {
+    private var addButton: some View {
         Button(action: {
             print("add clicked")
         }) {
@@ -93,7 +93,7 @@ struct ContentView: View {
         }) {
             Text(title)
                 .font(.subheadline)
-                .foregroundColor(.black)
+                .foregroundColor(filterOption == option ? .blue : .gray)
                 .padding()
                 .background(Color.gray.opacity(0.2))
                 .frame(minWidth: 20, maxHeight: 30)
