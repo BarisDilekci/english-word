@@ -6,11 +6,11 @@ struct ContentView: View {
     @StateObject private var viewModel = WordViewModel()
     @State private var favoriteWords: Set<Int> = Set()
     @State private var filterOption: FilterOption = .all
+    @State private var searchText = ""
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
-    
     private var items: FetchedResults<Item>
 
     enum FilterOption {
@@ -25,7 +25,7 @@ struct ContentView: View {
                     Spacer()
                     filterButton(title: "Favoriler", option: .favorites)
                     Spacer()
-                    filterButton(title: "Benim Eklediklerim", option: .all) 
+                    filterButton(title: "Benim Eklediklerim", option: .all)
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
@@ -58,28 +58,33 @@ struct ContentView: View {
                 }
                 .navigationTitle("Words")
                 .navigationBarItems(trailing: addButton)
- 
+                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always)) // Searchable feature added
             }
             .onAppear(perform: loadFavorites)
         }
     }
 
     private var filteredWords: [WordModels] {
+        var words = viewModel.words
+
+        if !searchText.isEmpty {
+            words = words.filter { $0.tr.contains(searchText) || $0.eng.contains(searchText) }
+        }
+
         switch filterOption {
         case .all:
-            return viewModel.words
+            return words
         case .favorites:
-            return viewModel.words.filter { favoriteWords.contains($0.id) }
+            return words.filter { favoriteWords.contains($0.id) }
         }
     }
     
     private var addButton : some View {
         Button(action: {
             print("add clicked")
-
-              }) {
-                  Image(systemName: "plus")
-              }
+        }) {
+            Image(systemName: "plus")
+        }
     }
 
     private func filterButton(title: String, option: FilterOption) -> some View {
@@ -91,7 +96,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
                 .padding()
                 .background(Color.gray.opacity(0.2))
-                .frame(minWidth: 20,maxHeight: 30)
+                .frame(minWidth: 20, maxHeight: 30)
                 .cornerRadius(18)
         }
         .shadow(radius: filterOption == option ? 3 : 0)
