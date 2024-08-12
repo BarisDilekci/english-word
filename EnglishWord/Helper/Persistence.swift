@@ -17,6 +17,11 @@ struct PersistenceController {
             newItem.timestamp = Date()
             newItem.id = Int16(i)
             newItem.isFavorite = false // Varsayılan değeri belirleyin
+            
+            let newWord = NewWord(context: viewContext)
+            newWord.id = UUID()
+            newWord.eng = "Sample English Word \(i)"
+            newWord.tr = "Örnek Türkçe Kelime \(i)"
         }
         do {
             try viewContext.save()

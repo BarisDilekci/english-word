@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class WordViewModel: ObservableObject {
-    
     @Published var words: [WordModels] = []
     @Published var totalWords: Int = 0
     @Published var showMessage: Bool = false
@@ -35,8 +34,5 @@ class WordViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
-  
-
     
 }

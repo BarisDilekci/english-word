@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75069C6B2C69858C001716B3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75069C6A2C69858C001716B3 /* AddView.swift */; };
 		754077C02C62B159005F95DF /* EnglishWordApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077BF2C62B159005F95DF /* EnglishWordApp.swift */; };
-		754077C22C62B159005F95DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077C12C62B159005F95DF /* ContentView.swift */; };
+		754077C22C62B159005F95DF /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077C12C62B159005F95DF /* WordView.swift */; };
 		754077C42C62B15A005F95DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754077C32C62B15A005F95DF /* Assets.xcassets */; };
 		754077C72C62B15A005F95DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754077C62C62B15A005F95DF /* Preview Assets.xcassets */; };
 		754077C92C62B15A005F95DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077C82C62B15A005F95DF /* Persistence.swift */; };
@@ -21,9 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75069C6A2C69858C001716B3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		754077BC2C62B159005F95DF /* EnglishWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754077BF2C62B159005F95DF /* EnglishWordApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishWordApp.swift; sourceTree = "<group>"; };
-		754077C12C62B159005F95DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		754077C12C62B159005F95DF /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		754077C32C62B15A005F95DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		754077C62C62B15A005F95DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		754077C82C62B15A005F95DF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75069C692C698584001716B3 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				75069C6A2C69858C001716B3 /* AddView.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		754077B32C62B159005F95DF = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		754077D22C62B167005F95DF /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				75069C692C698584001716B3 /* Add */,
 				754077DB2C62B1E3005F95DF /* Word */,
 				754077E42C62B768005F95DF /* WordManager.swift */,
 			);
@@ -130,7 +141,7 @@
 		754077DB2C62B1E3005F95DF /* Word */ = {
 			isa = PBXGroup;
 			children = (
-				754077C12C62B159005F95DF /* ContentView.swift */,
+				754077C12C62B159005F95DF /* WordView.swift */,
 				754077DC2C62B1EB005F95DF /* ViewModel */,
 			);
 			path = Word;
@@ -216,7 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				754077C92C62B15A005F95DF /* Persistence.swift in Sources */,
-				754077C22C62B159005F95DF /* ContentView.swift in Sources */,
+				754077C22C62B159005F95DF /* WordView.swift in Sources */,
+				75069C6B2C69858C001716B3 /* AddView.swift in Sources */,
 				754077D62C62B1A2005F95DF /* CodableBundleExtensions.swift in Sources */,
 				754077E52C62B768005F95DF /* WordManager.swift in Sources */,
 				754077DA2C62B1C4005F95DF /* WordModels.swift in Sources */,

@@ -13,7 +13,7 @@ struct EnglishWordApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WordView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
