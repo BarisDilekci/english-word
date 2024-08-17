@@ -2,18 +2,12 @@ import SwiftUI
 import CoreData
 
 struct WordView: View {
-    
     // MARK: - Core Data
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \NewWord.eng, ascending: true)],
-        animation: .default)
-    private var newWords: FetchedResults<NewWord>
-    
+
     @Environment(\.managedObjectContext) private var viewContext
     
     // MARK: - Properties
@@ -24,58 +18,60 @@ struct WordView: View {
     @State private var showAddView = false
     
     enum FilterOption {
-        case all, favorites, myAdd
+        case all, favorites
     }
     
     // MARK: - LIFECYCLE
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    filterButton(title: "Tümü", option: .all)
-                    Spacer()
-                    filterButton(title: "Favoriler", option: .favorites)
-                    Spacer()
-                    filterButton(title: "Benim Eklediklerim", option: .myAdd)
-                }
-                .padding(.horizontal)
-                .padding(.top, 8)
-                
-                List(filteredWords) { word in
-                    HStack {
-                        Text(word.tr)
-                            .font(.body)
-                            .foregroundColor(.primary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Spacer()
-                        
-                        Text(word.eng)
-                            .font(.body)
-                            .foregroundColor(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                        
-                        Spacer()
-                        
-                        if filterOption != .myAdd {
-                            Button(action: {
-                                toggleFavorite(id: Int(word.id ?? UUID().uuidString.hashValue))
-                            }) {
-                                Image(systemName: favoriteWords.contains(Int(word.id ?? UUID().uuidString.hashValue)) ? "heart.fill" : "heart")
-                                    .font(.title3)
-                                    .foregroundColor(favoriteWords.contains(Int(word.id ?? UUID().uuidString.hashValue)) ? .red : .gray)
+                List {
+                    ForEach(filteredWords) { word in
+                        HStack {
+                            Text(word.tr)
+                                .font(.body)
+                                .foregroundColor(.primary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            Spacer()
+                            
+                            Text(word.eng)
+                                .font(.body)
+                                .foregroundColor(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                            
+                            Spacer()
+                            
+                            if filterOption == .all {
+                                Button(action: {
+                                    toggleFavorite(id: word.id)
+                                }) {
+                                    Image(systemName: favoriteWords.contains(word.id) ? "heart.fill" : "heart")
+                                        .font(.title3)
+                                        .foregroundColor(favoriteWords.contains(word.id) ? .red : .gray)
+                                }
                             }
                         }
+                        .padding(.vertical, 8)
                     }
-                    .padding(.vertical, 8)
                 }
                 .sheet(isPresented: $showAddView) {
                     AddView()
                         .environment(\.managedObjectContext, viewContext)
                 }
                 .navigationTitle("Words")
-                .navigationBarItems(trailing: addButton)
                 .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            filterOption = filterOption == .all ? .favorites : .all
+                        }) {
+                            Image(systemName: filterOption == .all ? "line.3.horizontal.decrease.circle" : "line.3.horizontal.decrease.circle.fill")
+                                .font(.title3)
+                                .foregroundColor(filterOption == .all ? .gray : .yellow)
+                        }
+                    }
+                }
             }
             .onAppear(perform: loadFavorites)
         }
@@ -94,39 +90,11 @@ struct WordView: View {
             return words
         case .favorites:
             return words.filter { favoriteWords.contains($0.id) }
-        case .myAdd:
-            let newWordsArray = newWords.map { WordModels(id: Int($0.id?.hashValue ?? 0), categoryId: 3, eng: $0.eng ?? "", tr: $0.tr ?? "") }
-            return newWordsArray
         }
     }
     
     private func loadFavorites() {
         favoriteWords = Set(items.filter { $0.isFavorite }.map { Int($0.id) })
-    }
-    
-    // MARK: - Buttons
-    private var addButton: some View {
-        Button(action: {
-            showAddView = true // Show the sheet
-        }) {
-            Image(systemName: "plus")
-        }
-    }
-    
-    private func filterButton(title: String, option: FilterOption) -> some View {
-        Button(action: {
-            filterOption = option
-        }) {
-            Text(title)
-                .font(.subheadline)
-                .foregroundColor(filterOption == option ? .blue : .gray)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .frame(minWidth: 20, maxHeight: 30)
-                .cornerRadius(18)
-        }
-        .shadow(radius: filterOption == option ? 3 : 0)
-        .animation(.easeInOut, value: filterOption)
     }
     
     private func toggleFavorite(id: Int) {
@@ -149,9 +117,5 @@ struct WordView: View {
             }
         }
     }
-}
-
-#Preview {
-    WordView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
 

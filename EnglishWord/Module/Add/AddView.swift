@@ -64,6 +64,15 @@ struct AddView: View {
             alertItem = AlertItem(id: UUID(), message: "Failed to save item: \(error.localizedDescription)")
         }
     }
+    private func deleteNewWord(_ newWord: NewWord) {
+          viewContext.delete(newWord)
+          do {
+              try viewContext.save()
+          } catch {
+              let nsError = error as NSError
+              fatalError("Çözülemeyen hata: \(nsError), \(nsError.userInfo)")
+          }
+      }
 }
 
 struct AlertItem: Identifiable {
