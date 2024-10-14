@@ -3,14 +3,12 @@ import SwiftUI
 struct WordView: View {
     // MARK: - Properties
     @StateObject private var viewModel: WordViewModel
-
-
     @State private var showAddView = false
-    
-    init(coreDataManager: WordManaging = WordDataManager.shared) {
-            _viewModel = StateObject(wrappedValue: WordViewModel(coreDataManager: coreDataManager))
-        }
-    
+
+    init(coreDataManager: WordManagerProtocol = WordDataManager.shared) {
+        _viewModel = StateObject(wrappedValue: WordViewModel(wordManager: coreDataManager as! WordDataManager))
+    }
+
     // MARK: - LIFECYCLE
     var body: some View {
         NavigationView {
@@ -29,8 +27,6 @@ struct WordView: View {
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
-                            
-                            Spacer()
                             
                             if viewModel.filterOption == .all {
                                 Button(action: {
@@ -61,7 +57,6 @@ struct WordView: View {
             }
             .onAppear {
                 viewModel.loadWords()
-                viewModel.loadFavoriteWords()
             }
         }
     }

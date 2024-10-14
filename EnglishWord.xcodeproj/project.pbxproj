@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,25 +18,17 @@
 		754077DE2C62B1F1005F95DF /* WordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077DD2C62B1F1005F95DF /* WordViewModel.swift */; };
 		754077E32C62B396005F95DF /* word.json in Resources */ = {isa = PBXBuildFile; fileRef = 754077E22C62B396005F95DF /* word.json */; };
 		754077E52C62B768005F95DF /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077E42C62B768005F95DF /* WordManager.swift */; };
-		75E5D4672C714D5900533707 /* WordManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5D4662C714D5900533707 /* WordManaging.swift */; };
-		75E5D4692C714DE000533707 /* MockWordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E5D4682C714DE000533707 /* MockWordManager.swift */; };
-		75E5D4702C714EBE00533707 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E5D46F2C714EBE00533707 /* XCTest.framework */; };
-		75E5D4712C714EBE00533707 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 75E5D46F2C714EBE00533707 /* XCTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		75E5D4722C714EBE00533707 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				75E5D4712C714EBE00533707 /* XCTest.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		75A12FE42CBD704500087051 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 754077B42C62B159005F95DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 754077BB2C62B159005F95DF;
+			remoteInfo = EnglishWord;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		754077BC2C62B159005F95DF /* EnglishWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,17 +43,26 @@
 		754077DD2C62B1F1005F95DF /* WordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewModel.swift; sourceTree = "<group>"; };
 		754077E22C62B396005F95DF /* word.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = word.json; sourceTree = "<group>"; };
 		754077E42C62B768005F95DF /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
-		75E5D4662C714D5900533707 /* WordManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManaging.swift; sourceTree = "<group>"; };
-		75E5D4682C714DE000533707 /* MockWordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWordManager.swift; sourceTree = "<group>"; };
+		75A12FE02CBD704500087051 /* EnglishWordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnglishWordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E5D46F2C714EBE00533707 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		75A12FE12CBD704500087051 /* EnglishWordTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = EnglishWordTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		754077B92C62B159005F95DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E5D4702C714EBE00533707 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75A12FDD2CBD704500087051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				754077BE2C62B159005F95DF /* EnglishWord */,
+				75A12FE12CBD704500087051 /* EnglishWordTests */,
 				754077BD2C62B159005F95DF /* Products */,
 				75E5D46E2C714EBD00533707 /* Frameworks */,
 			);
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				754077BC2C62B159005F95DF /* EnglishWord.app */,
+				75A12FE02CBD704500087051 /* EnglishWordTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,8 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				754077E42C62B768005F95DF /* WordManager.swift */,
-				75E5D4662C714D5900533707 /* WordManaging.swift */,
-				75E5D4682C714DE000533707 /* MockWordManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -195,7 +196,6 @@
 				754077B82C62B159005F95DF /* Sources */,
 				754077B92C62B159005F95DF /* Frameworks */,
 				754077BA2C62B159005F95DF /* Resources */,
-				75E5D4722C714EBE00533707 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,6 +206,29 @@
 			productReference = 754077BC2C62B159005F95DF /* EnglishWord.app */;
 			productType = "com.apple.product-type.application";
 		};
+		75A12FDF2CBD704500087051 /* EnglishWordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75A12FE82CBD704500087051 /* Build configuration list for PBXNativeTarget "EnglishWordTests" */;
+			buildPhases = (
+				75A12FDC2CBD704500087051 /* Sources */,
+				75A12FDD2CBD704500087051 /* Frameworks */,
+				75A12FDE2CBD704500087051 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75A12FE52CBD704500087051 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				75A12FE12CBD704500087051 /* EnglishWordTests */,
+			);
+			name = EnglishWordTests;
+			packageProductDependencies = (
+			);
+			productName = EnglishWordTests;
+			productReference = 75A12FE02CBD704500087051 /* EnglishWordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,11 +236,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					754077BB2C62B159005F95DF = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					75A12FDF2CBD704500087051 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 754077BB2C62B159005F95DF;
 					};
 				};
 			};
@@ -235,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				754077BB2C62B159005F95DF /* EnglishWord */,
+				75A12FDF2CBD704500087051 /* EnglishWordTests */,
 			);
 		};
 /* End PBXProject section */
@@ -250,6 +278,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75A12FDE2CBD704500087051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -261,16 +296,29 @@
 				754077C22C62B159005F95DF /* WordView.swift in Sources */,
 				754077D62C62B1A2005F95DF /* CodableBundleExtensions.swift in Sources */,
 				754077E52C62B768005F95DF /* WordManager.swift in Sources */,
-				75E5D4672C714D5900533707 /* WordManaging.swift in Sources */,
 				754077DA2C62B1C4005F95DF /* WordModels.swift in Sources */,
 				754077CC2C62B15A005F95DF /* EnglishWord.xcdatamodeld in Sources */,
-				75E5D4692C714DE000533707 /* MockWordManager.swift in Sources */,
 				754077C02C62B159005F95DF /* EnglishWordApp.swift in Sources */,
 				754077DE2C62B1F1005F95DF /* WordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75A12FDC2CBD704500087051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75A12FE52CBD704500087051 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 754077BB2C62B159005F95DF /* EnglishWord */;
+			targetProxy = 75A12FE42CBD704500087051 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		754077CD2C62B15A005F95DF /* Debug */ = {
@@ -462,6 +510,44 @@
 			};
 			name = Release;
 		};
+		75A12FE62CBD704500087051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WL3K4A7DH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barixmen.EnglishWordTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnglishWord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EnglishWord";
+			};
+			name = Debug;
+		};
+		75A12FE72CBD704500087051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WL3K4A7DH8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.barixmen.EnglishWordTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EnglishWord.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EnglishWord";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -479,6 +565,15 @@
 			buildConfigurations = (
 				754077D02C62B15A005F95DF /* Debug */,
 				754077D12C62B15A005F95DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75A12FE82CBD704500087051 /* Build configuration list for PBXNativeTarget "EnglishWordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A12FE62CBD704500087051 /* Debug */,
+				75A12FE72CBD704500087051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

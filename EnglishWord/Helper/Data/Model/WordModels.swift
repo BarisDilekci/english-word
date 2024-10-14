@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct WordsResponse: Codable {
+    let words: [WordModels]
+}
+
+
 struct WordModels: Codable, Identifiable {
     let id: Int
     let categoryId: Int
@@ -21,6 +26,3 @@ struct WordModels: Codable, Identifiable {
     }
 }
 
-struct WordsResponse: Codable {
-    let words: [WordModels]
-}
