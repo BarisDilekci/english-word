@@ -6,30 +6,45 @@
 //
 
 import XCTest
+@testable import EnglishWord
 
 final class EnglishWordTests: XCTestCase {
-
+    
+    var wordManager: MockWordDataManager!
+    
+    override func setUp() {
+        super.setUp()
+        wordManager = MockWordDataManager()
+    }
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        wordManager = nil
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    
+    func test_load_favorite_words_from_data_manager() {
+        XCTAssertEqual(wordManager.loadFavoriteWords(), Set<Int>())
+        
+        wordManager.toggleFavorite(id: 1)
+        
+        XCTAssertEqual(wordManager.loadFavoriteWords(), Set([1]))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    
+    func test_toggle_favorite_from_data_manager() {
+        
+        wordManager.toggleFavorite(id: 1)
+        XCTAssertTrue(wordManager.favoriteWords.contains(1))
+        
+        wordManager.toggleFavorite(id: 1)
+        XCTAssertFalse(wordManager.favoriteWords.contains(1))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_load_all_words() {
+        wordManager.loadWords()
+        
+        XCTAssertEqual(wordManager.words.count, 3)
+        XCTAssertEqual(wordManager.words[0].eng, "Apple")
+        XCTAssertEqual(wordManager.words[1].tr, "Araba")
+        XCTAssertEqual(wordManager.words[2].categoryId, 2)
     }
-
 }

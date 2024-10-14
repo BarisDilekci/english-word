@@ -18,6 +18,7 @@
 		754077DE2C62B1F1005F95DF /* WordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077DD2C62B1F1005F95DF /* WordViewModel.swift */; };
 		754077E32C62B396005F95DF /* word.json in Resources */ = {isa = PBXBuildFile; fileRef = 754077E22C62B396005F95DF /* word.json */; };
 		754077E52C62B768005F95DF /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754077E42C62B768005F95DF /* WordManager.swift */; };
+		75A12FEE2CBD7AA800087051 /* MockWordDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A12FED2CBD7AA800087051 /* MockWordDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		754077E22C62B396005F95DF /* word.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = word.json; sourceTree = "<group>"; };
 		754077E42C62B768005F95DF /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		75A12FE02CBD704500087051 /* EnglishWordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnglishWordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A12FED2CBD7AA800087051 /* MockWordDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWordDataManager.swift; sourceTree = "<group>"; };
 		75E5D46F2C714EBE00533707 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 		754077D32C62B16E005F95DF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				75A12FEC2CBD7A9900087051 /* Mock */,
 				75E5D4632C714D2700533707 /* Manager */,
 				754077C82C62B15A005F95DF /* Persistence.swift */,
 				754077D72C62B1AF005F95DF /* Data */,
@@ -168,6 +171,14 @@
 				754077DD2C62B1F1005F95DF /* WordViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		75A12FEC2CBD7A9900087051 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				75A12FED2CBD7AA800087051 /* MockWordDataManager.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		75E5D4632C714D2700533707 /* Manager */ = {
@@ -298,6 +309,7 @@
 				754077E52C62B768005F95DF /* WordManager.swift in Sources */,
 				754077DA2C62B1C4005F95DF /* WordModels.swift in Sources */,
 				754077CC2C62B15A005F95DF /* EnglishWord.xcdatamodeld in Sources */,
+				75A12FEE2CBD7AA800087051 /* MockWordDataManager.swift in Sources */,
 				754077C02C62B159005F95DF /* EnglishWordApp.swift in Sources */,
 				754077DE2C62B1F1005F95DF /* WordViewModel.swift in Sources */,
 			);
